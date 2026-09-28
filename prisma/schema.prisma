@@ -1,0 +1,25 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider  = "prisma-client-py"
+  interface = "sync"
+}
+
+model Funcionario {
+  id          Int          @id @default(autoincrement())
+  nome        String
+  cpf         String       @unique
+  ocorrencias Ocorrencia[]
+  createdAt   DateTime     @default(now())
+}
+
+model Ocorrencia {
+  id            Int         @id @default(autoincrement())
+  funcionarioId Int
+  funcionario   Funcionario @relation(fields: [funcionarioId], references: [id])
+  tipoInfracao  String
+  dataHora      DateTime    @default(now())
+}
