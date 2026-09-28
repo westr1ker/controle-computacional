@@ -1,5 +1,17 @@
-venv/
+# Modelos PyTorch / YOLO
+*.pt
+*.onnx
+
+# Imagens de teste / alertas gerados em tempo de execução
+*.jpg
+*.png
+
+# Variáveis de ambiente e arquivos sensíveis
+.env
+
+# Cache do Python
 __pycache__/
 *.pyc
-.env
-*.pt
+
+# Banco de dados local / Prisma
+*.db
